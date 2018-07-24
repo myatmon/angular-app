@@ -1,5 +1,5 @@
 <h2>My Heroes</h2>
-
+ 
 <div>
   <label>Hero name:
     <input #heroName />
@@ -9,7 +9,7 @@
     add
   </button>
 </div>
-
+ 
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
@@ -19,10 +19,3 @@
       (click)="delete(hero)">x</button>
   </li>
 </ul>
-
-
-<!-- 
-Copyright 2017-2018 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->

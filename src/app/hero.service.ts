@@ -7,6 +7,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Hero } from './Hero';
 import { MessageService } from './message.service';
 
+import { Heroes } from './mock-heroes';
+
+
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
