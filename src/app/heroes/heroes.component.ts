@@ -1,6 +1,8 @@
 import { Component, OnInit ,Input} from '@angular/core';
+
 import { Hero } from '../Hero';
 import { HeroService } from '../hero.service';
+
 
 
 
@@ -12,10 +14,14 @@ import { HeroService } from '../hero.service';
 
 export class HeroesComponent implements OnInit {
 
-	
+  heroes: Hero[];
 
-  	heroes : Hero[];
+  constructor(private heroService: HeroService) {
+  }
 
+  ngOnInit() {
+    this.getHeroes();
+  }
   	selectedHero : Hero;
 
   	onSelect(hero: Hero):void {
@@ -23,15 +29,8 @@ export class HeroesComponent implements OnInit {
   	}
 
   getHeroes(): void {
-     this.heroes = this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+      this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
    }
-
-  constructor(private heroService: HeroService) { 
-  }
-
-  ngOnInit() {
-    this.getHeroes();
-  }
 
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
